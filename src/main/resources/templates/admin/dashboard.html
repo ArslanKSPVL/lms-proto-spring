@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::body})}">
+<body>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Users</h5>
+                <p class="card-text" th:text="${userCount}">0</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Courses</h5>
+                <p class="card-text" th:text="${courseCount}">0</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-bg-info mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Offerings</h5>
+                <p class="card-text" th:text="${offeringCount}">0</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-outline-primary me-2" th:href="@{/admin/users}">Manage Users</a>
+    <a class="btn btn-outline-secondary me-2" th:href="@{/admin/courses}">Manage Courses</a>
+    <a class="btn btn-outline-secondary" th:href="@{/admin/offerings}">Manage Offerings</a>
+</div>
+</body>
+</html>
+

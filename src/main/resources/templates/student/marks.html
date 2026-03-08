@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::body})}">
+<body>
+<h5>Internal Marks</h5>
+<table class="table table-striped table-sm">
+    <thead>
+    <tr>
+        <th>Course</th>
+        <th>Component</th>
+        <th>Marks</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="m : ${marksEntries}">
+        <td th:text="${m.component.offering.course.code} + ' - ' + ${m.component.offering.course.title}"></td>
+        <td th:text="${m.component.name} + ' (' + ${m.component.type} + ')'"></td>
+        <td th:text="${m.marksObtained} + ' / ' + ${m.component.maxMarks}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+

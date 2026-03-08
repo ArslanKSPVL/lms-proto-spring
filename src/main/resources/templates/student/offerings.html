@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::body})}">
+<body>
+<h5>Available Offerings</h5>
+<table class="table table-striped table-sm">
+    <thead>
+    <tr>
+        <th>Course</th>
+        <th>Section</th>
+        <th>Faculty</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="o : ${offerings}">
+        <td th:text="${o.course.code} + ' - ' + ${o.course.title}"></td>
+        <td th:text="${o.section}"></td>
+        <td th:text="${o.faculty.fullName}"></td>
+        <td>
+            <form th:action="@{'/student/offerings/' + ${o.id} + '/enroll'}" method="post">
+                <button class="btn btn-sm btn-primary" type="submit">Enroll</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+

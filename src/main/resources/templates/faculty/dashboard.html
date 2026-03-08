@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::body})}">
+<body>
+<div class="mb-3">
+    <h5>Your Course Offerings</h5>
+    <table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th>Course</th>
+            <th>Section</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="o : ${offerings}">
+            <td th:text="${o.course.code} + ' - ' + ${o.course.title}"></td>
+            <td th:text="${o.section}"></td>
+            <td>
+                <a class="btn btn-sm btn-primary" th:href="@{'/faculty/offering/' + ${o.id}}">Open</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+

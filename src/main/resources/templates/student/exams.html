@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::body})}">
+<body>
+<h5>Exam Timetable</h5>
+<table class="table table-striped table-sm">
+    <thead>
+    <tr>
+        <th>Course</th>
+        <th>Date/Time</th>
+        <th>Venue</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="t : ${timetables}">
+        <td th:text="${t.offering.course.code} + ' - ' + ${t.offering.course.title}"></td>
+        <td th:text="${#temporals.format(t.examAt, 'dd MMM yyyy HH:mm')}"></td>
+        <td th:text="${t.venue}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h5 class="mt-4">Results</h5>
+<table class="table table-striped table-sm">
+    <thead>
+    <tr>
+        <th>Course</th>
+        <th>Total Marks</th>
+        <th>Grade</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="r : ${results}">
+        <td th:text="${r.offering.course.code} + ' - ' + ${r.offering.course.title}"></td>
+        <td th:text="${r.totalMarks}"></td>
+        <td th:text="${r.grade}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
